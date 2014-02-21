@@ -44,16 +44,19 @@
 					</p>
 				</section>
 				
-				
 				<section>
 					<h2>Ablauf</h2>
 					<ul>
 						<li>Vorstellungsrunde und Einleitung</li>
-						<li>Ein wenig Theorie</li>
+						<li>Grundlagen</li>
 						<li>Einstiegsbeispiel</li>
 						<li>Ein kompexeres Beispiel</li>
 						<li>Wir spielen</li>
 					</ul>
+				</section>
+				
+				<section>
+					<h1>Grundlagen</h1>
 				</section>
 				
 				<section>
@@ -72,27 +75,29 @@
 				</section>
 				
 				<section>
-					<section>
-						<h2>Arduino Uno</h2>
-						
-						<p>TODO: Bild eines Arduino Uno R3</p>
-					</section>
+					<h2>Arduino Uno</h2>
 					
-					<section>
-						<h2>Was ist an bord?</h2>
-						<ul>
-							<li>Mikrokontroller: Atmel ATMEGA328P-PU (Programm)</li>
-							<li>Mikrokontroller: Atmel MEGA16U2 (Upload)</li>
-							<li>Stromversorgung und Programmierung per USB</li>
-							<li>Quarz, passive Bauelemente, ICSP-Header uvm.</li>
-							<li>Reset-Taste</li>
-						</ul>
-					</section>			
+					<p>TODO: Bild eines Arduino Uno R3</p>
+				</section>
+				
 				<section>
-						<h2>Shields</h2>
-						
-						<p>TODO: Bild eines Shields</p>
-					</section>
+					<h2>Was ist an bord?</h2>
+					<ul>
+						<li>Mikrokontroller: Atmel ATMEGA328P-PU (Programm)</li>
+						<li>Mikrokontroller: Atmel MEGA16U2 (Upload)</li>
+						<li>Stromversorgung und Programmierung per USB</li>
+						<li>Quarz, passive Bauelemente, ICSP-Header uvm.</li>
+						<li>Reset-Taste</li>
+					</ul>
+				</section>			
+				<section>
+					<h2>Shields</h2>
+					
+					<p>TODO: Bild eines Shields</p>
+				</section>
+				
+				<section>
+					<h1>Blink</h1>
 				</section>
 				
 				<section>
@@ -100,61 +105,50 @@
 					<ul>
 						<li>Arduino IDE einstellen</li>
 						<li>Board anschließen</li>
-						<li>Beispiele probieren, z.B. <b>Blink</b></li>
+						<li>Beispiel <b>Blink</b> ausprobieren und...</li>
+						<li>... erweitern</li>
 					</ul>
 				</section>
 				
 				<section>
-					<section>
-						<h2>Wie funktioniert das denn?</h2>
-						<pre><code data-trim contenteditable>
-void setup() {
-  // einmalige Konfiguration
+					<h2>Blink Quelltext</h2>
+					<pre><code data-trim contenteditable>
+int led = 13; // Pin der LED
+
+// einmalige Konfiguration nach Reset
+void setup() {                
+	pinMode(led, OUTPUT); // setzt den Pin auf Ausgang 
+}
+
+// wird wiederholt aufgeführt
+void loop() {
+	digitalWrite(led, HIGH); // schalte LED an
+	delay(1000); // warte 1000ms, also eine Sekunde
+	digitalWrite(led, LOW); // schalte LED aus
+	delay(1000); // warte 1000ms, also eine Sekunde
+}
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>Blink erweitert</h2>
+					<pre><code data-trim contenteditable>
+int led = 13;
+
+void setup() {                
+	pinMode(led, OUTPUT);
+	Serial.begin(9600); // Konfiguriere Kommunikation zum PC
 }
 
 void loop() {
-  // wird wiederholt aufgeführt
+	digitalWrite(led, HIGH);
+	Serial.println("LED an"); // sende an PC
+	delay(1000);
+	digitalWrite(led, LOW);
+	Serial.println("LED aus"); // sende an PC
+	delay(1000);
 }
-						</code></pre>
-					</section>
-					<section>
-						<h2>Und nun?</h2>
-						<pre><code data-trim contenteditable>
-void setup() {
-  // Konfiguriere Kommunikation zum PC
-  Serial.begin(9600);
-}
-
-void loop() {
-  // sende Text zum PC
-  Serial.println("Hallo!");
-  // warte 1000ms, also eine Sekunde
-  delay(1000);
-}
-						</code></pre>
-					</section>
-					
-					<section>
-						<h2>Was haben wir in Blink gelernt?</h2>
-						<pre><code data-trim contenteditable>
-int led = 13; // Variable für Pin anlegen
-						
-void setup() {
-  Serial.begin(9600);
-  pinMode(led, OUTPUT);  
-}
-
-void loop() {
-  Serial.println("LED an");
-  digitalWrite(led, HIGH); // schalte LED an
-  delay(1000);
-  
-  Serial.println("LED aus");
-  digitalWrite(led, LOW); // schalte LED aus
-  delay(1000);
-}
-						</code></pre>
-					</section>
+					</code></pre>
 				</section>
 
 				<section>
@@ -166,12 +160,42 @@ void loop() {
 				</section>
 				
 				<section>
-					<h2>Servos</h2>
+					<h1>Basteln</h1>
+				</section>
+				
+				<section>
+					<h2>Ziel</h2>
+					<ul>
+						<li>Wir wollen eine externe LED anschließen, die wir individuell Blinken lassen. Über einen Schalter wollen wir das Blinkprogramm umschalten.</li>
+						<li>Erweiterung: Ansteuern der LED über einen Transistor</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Schaltplan</h2>
+					
+					<p>TODO</p>
+				</section>
+				
+				<section>
+					<h1>Wir spielen</h1>
+				</section>
+				
+				<section>
+					<h2>Lüftersteuerung</h2>
+				</section>
+				
+				<section>
+					<h2>Servomotoren</h2>
 					
 					<p>Servos sind elektrische Stellmotoren, bei denen der Stellwinkel über Pulsweitenmodulation (PWM) eingestellt werden kann.</p>
 					<p>TODO: Bild eines Hobby-Servos</p>
 
 						<p>Beispiel <a href="http://arduino.cc/en/Tutorial/Sweep">Sweep</a></p>
+				</section>
+				
+				<section>
+					<h2>DCF77</h2>
 				</section>
 			</div>
 
