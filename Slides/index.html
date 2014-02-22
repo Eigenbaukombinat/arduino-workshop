@@ -20,6 +20,14 @@
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+            });
+        </script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
@@ -112,6 +120,7 @@
 				
 				<section>
 					<h2>Blink Quelltext</h2>
+					<p>Beispieldatei <b>Blink</b></p>
 					<pre><code data-trim contenteditable>
 int led = 13; // Pin der LED
 
@@ -132,6 +141,7 @@ void loop() {
 				
 				<section>
 					<h2>Blink erweitert</h2>
+					<p>Beispieldatei <b>Blink2</b></p>
 					<pre><code data-trim contenteditable>
 int led = 13;
 
@@ -172,10 +182,58 @@ void loop() {
 				</section>
 				
 				<section>
+					<h2>LED ansteuern</h2>
+					
+
+                    <ul>
+                        <li>Vorwiderstand</li>
+                        <li>$ U_{vcc} =  5,0 V$</li>
+                        <li>Brennspannung $U_{brenn} = 3,3 V$</li>
+                        <li>Brennstrom $I_{brenn} = 20 mA$</li>
+                        <li>Spannungsabfall $U_v = U_{vcc} - U_{brenn}$</li>
+                        <li>$R_v = \frac{U_v}{I_{brenn}}$</li>
+                        <li>$R_v = \frac{1,7 V}{0,02 A} = 95 \Omega$</li>
+                        <li>Wir wählen $R_v$ etwas größer</li>
+                        
+                        <li>Tool <a href="https://www.elektronik-kompendium.de/sites/bau/1109111.htm">hier</a></li>
+                    </ul>
+				</section>
+				
+				<section>
+					<h2>Transistor</h2>
+					
+					<ul>
+					    <li>Die LED benötigt Strom.</li>
+					    <li>Der Strom über den Arduino is begrenzt.</li>
+					    <li>Schöne Lösung: Transistor als "Schalter" benutzen</li>
+					</ul>
+				</section>
+				
+				<section>
 					<h2>Schaltplan</h2>
 					
-					<p>TODO</p>
+					<img src="img/diagram.png"/>
 				</section>
+				
+				<section>
+					<h2>Los gehts</h2>
+					
+					<p>Löten oder Steckbrett?</p>
+				</section>
+				
+				<section>
+					<h2>Breadboard</h2>
+					
+					<img src="img/breadboard.png"/>
+				</section>
+				
+				<section>
+					<h2>Programmieren</h2>
+					<p>Wir beginnen mit Beispieldatei <b>Blink</b></p>
+					
+					<p>Mögliche Lösung in <b>BlinkToggle</b></p>
+				</section>
+				
 				
 				<section>
 					<h1>Wir spielen</h1>
@@ -192,7 +250,7 @@ void loop() {
 				<section>
 					<h2>Servomotoren</h2>
 					
-					<p>Servos sind elektrische Stellmotoren, bei denen der Stellwinkel über Pulsweitenmodulation (PWM) eingestellt werden kann. Beispiel <b>Servo</b></p>
+					<p>Servos sind elektrische Stellmotoren, bei denen der Stellwinkel über PWM eingestellt werden kann. Beispiel <b>Servo</b></p>
 
 					<img src="img/servo.jpg"/>
 				</section>
