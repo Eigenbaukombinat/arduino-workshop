@@ -1,42 +1,25 @@
-#include <Dht11.h>
+#include <DHT.h>
 
-Dht11 sensor(2);
+// Sensor Pin 1 -> Arduino Pin 2
+// Sensor Pin 2 -> Arduino +5V
+// Sensor Pin 3 -> Arduino GND
+
+DHT dht(2, DHT11);
 
 void setup() {
     Serial.begin(9600);
-    Serial.print("Dht11 Lib version ");
-    Serial.println(Dht11::VERSION);
-    
+
+    dht.begin();
 }
 
-/*
- * loop
- *
- * Code to be executed repeatedly.
- */
 void loop() {
-    switch (sensor.read()) {
-    case Dht11::OK:
-        Serial.print("Humidity (%): ");
-        Serial.println(sensor.getHumidity());
-
-        Serial.print("Temperature (C): ");
-        Serial.println(sensor.getTemperature());
-        break;
-
-    case Dht11::ERROR_CHECKSUM:
-        Serial.println("Checksum error");
-        break;
-
-    case Dht11::ERROR_TIMEOUT:
-        Serial.println("Timeout error");
-        break;
-
-    default:
-        Serial.println("Unknown error");
-        break;
-    }
-
     delay(2000);
+    
+    Serial.print("Humidity (%): ");
+    float h = dht.readHumidity();
+    Serial.println(h);
+
+    Serial.print("Temperature (C): ");
+    Serial.println(dht.readTemperature());
 }
 

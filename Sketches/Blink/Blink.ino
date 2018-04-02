@@ -14,5 +14,5 @@ void loop() {
   digitalWrite(led, HIGH); // schalte LED an
   delay(1000); // warte 1000ms, also eine Sekunde
   digitalWrite(led, LOW); // schalte LED aus
- delay(1000); // warte 1000ms, also eine Sekunde
+  delay(1000); // warte 1000ms, also eine Sekunde
 }

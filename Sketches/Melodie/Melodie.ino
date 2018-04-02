@@ -8,7 +8,7 @@ int length = 15; // Anzahl der Noten
 char notes[] = "ccggaagffeeddc "; // Leerzeichen repräsentiert die Pause
 int beats[] = { 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 4 };
 
-int tempo = 50;
+int tempo = 100;
 
 void playTone(int tone, int duration) {
   for (long i = 0; i < duration * 1000L; i += tone * 2) {
